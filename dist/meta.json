@@ -1,0 +1,20 @@
+{
+	"name": "asana",
+	"description": "workerB package for asana.com",
+	"sites": ["https://www.asana.com"],
+	"icon": "logo.svg",
+	"scripts": [
+		{
+			"name": "get_options",
+			"file": "get_options.js",
+			"type": "action",
+			"description": ""
+		},
+		{
+			"name": "setup",
+			"file": "setup.js",
+			"type": "action",
+			"description": "Setup the asana automation package"
+		}
+	]
+}
