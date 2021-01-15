@@ -15,6 +15,12 @@
 			"file": "setup.js",
 			"type": "action",
 			"description": "Setup the asana automation package"
+		},
+		{
+			"name": "workSpaces",
+			"file": "workSpaces",
+			"type": "folder",
+			"description": "workspaces shortcuts"
 		}
 	]
 }

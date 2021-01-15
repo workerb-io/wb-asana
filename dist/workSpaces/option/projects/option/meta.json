@@ -1,0 +1,11 @@
+{
+	"name": "option",
+	"scripts": [
+		{
+			"name": "open",
+			"file": "open.js",
+			"type": "action",
+			"description": "open workspace"
+        }
+	]
+}

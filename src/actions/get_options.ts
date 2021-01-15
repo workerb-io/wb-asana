@@ -1,12 +1,9 @@
 import { accessToken } from '../utils/constants'
 
 const returnOptions = () => {
-
-	log(accessToken, 'accessToken')
-
 	if (!accessToken) {
 		return JSON.stringify({
-			remove: ['organisation'],
+			remove: ['workSpaces'],
 		})
 	} else {
 		return JSON.stringify({

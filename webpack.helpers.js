@@ -51,7 +51,7 @@ const getFiles = ( files = [], ext) => {
             return path
         }
         })
-        if( fileStr.search(ext) > 0){
+        if( fileStr.lastIndexOf(ext) === fileStr.length - ext.length){
             return path + fileStr
         } else {
             return ""
