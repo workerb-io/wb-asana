@@ -1,24 +1,12 @@
-<h1 align="center">wb-github</h1>
-<h3 align="center"><a href="https://workerb.io/">workerB</a> package for <a href="https://github.com/">Github</a></h3>
-
-## Demo
-
-<div align="center">
-  <a href="https://www.youtube.com/watch?v=LUbbxE9YztU">
-     <img 
-      src="https://user-images.githubusercontent.com/29889620/88480229-5ce5b200-cf72-11ea-803f-c2621d4570d4.png"
-      alt="workerb GitHub Package" 
-      style="width:100%;"
-     >
-  </a>
-</div>
+<h1 align="center">wb-asana</h1>
+<h3 align="center"><a href="https://workerb.io/">workerB</a> package for <a href="https://asana.com/">Asana</a></h3>
 
 ## How to install
 
 -   Create account on [workerb](https://workerb.io/).
 -   Install [workerb extension](https://chrome.google.com/webstore/detail/jdbakbjkiklbibfccegfejjdlcgpnnpe).
--   Add Github package.
--   Setup Github package.
+-   Add Asana package.
+-   Setup Asana package.
 -   🚀🚀
 
 ## Development
