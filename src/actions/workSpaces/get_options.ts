@@ -1,22 +1,17 @@
 import { getWorkspaces } from "../../utils/api"
-
-interface Workspace {
-    gid: number
-    name: string
-    resource_type: string
-}
+import { Workspace } from "../../utils/interfaces"
 
 const returnOptions = () => {
-    const { response } = getWorkspaces()
+    const { response } = getWorkspaces();
+    const workspaceList = response.data as Workspace[];
+    const workspaces = workspaceList.map(workspace => ({
+        ...workspace,
+        description: `${workspace.name} workspace`
+    }));
 
     return {
-        add: response.data.map(
-            (workspace: Workspace) => ({
-                ...workspace,
-                description: `${workspace.name} workspace`
-            })
-        )
-    }
+        add: workspaces
+    };
 }
 
-export default returnOptions
+export default returnOptions;

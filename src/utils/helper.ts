@@ -1,24 +1,20 @@
-import { apiUrl } from './constants'
+import { API_URL } from './constants';
+import { DecodedAPIResponse } from './interfaces';
 
-export interface DecodedAPIResponse {
-	response: any
-	status: number
-}
-
-export const getUrl = (endPoint: string) => {
-	return apiUrl + endPoint
+export const getUrl = (endPoint: string): string => {
+	return API_URL + endPoint;
 }
 
 export const decodeApiResponse = (result: APIResponse): DecodedAPIResponse => {
 	if (!result.response) {
 		return {
 			response: {},
-			status: result.status,
-		}
+			status: result.status
+		};
 	}
 
 	return {
 		response: JSON.parse(result.response),
-		status: result.status,
-	}
+		status: result.status
+	};
 }

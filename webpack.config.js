@@ -3,30 +3,45 @@ const path = require('path')
 const CopyPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 const fs = require('fs');
-const helpers = require('./webpack.helpers.js')
+const helpers = require('./webpack.helpers.js');
+const WBMetaJsonGenerator = require("wb-packager-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 
-const fileSystem = helpers.generateFS(__dirname + '/src/actions', "workerB")
+const fileSystem = helpers.generateFS(__dirname + '/src/actions', "workerB");
 
-const entryFiles = helpers.generateEntryPaths(fileSystem.children)
+const entryFiles = helpers.generateEntryPaths(fileSystem.children);
 
-const entryPaths = helpers.getFiles(entryFiles, ".ts").map(file => file.replace('.ts', ''))
-
-const metaFiles = helpers.getFiles(entryFiles, ".json")
-
-let copyPatterns = metaFiles.map(
-    (metaFile) => ({ from: './src/actions' + metaFile, to: './' + metaFile })
-)
-
-const rootJSON = fs.readFileSync("./src/actions/meta.json", 'utf8')
-const rootJSONParsed = rootJSON ? JSON.parse(rootJSON) : {}
-
-let iconPath = ""
-
-if (rootJSONParsed.icon) {
-    iconPath = path.join("./src/actions", rootJSONParsed.icon)
-    copyPatterns = copyPatterns.concat({ from: iconPath, to: './' })
+const mode = process.argv.filter(val => val.includes("--mode"));
+let environment = "production";
+if(mode.length > 0 && mode[0].includes("dev")) {
+  environment = "development";
 }
+
+const entryPaths = helpers.getFiles(entryFiles, ".ts").map(file => file.replace('.ts', ''));
+
+const folderDescriptionList = [
+    {
+        path: "/workspaces", 
+        description: "Display all the workspaces",
+        iconPath: "src/actions/workspaces/workspace_icons/workspace.png"
+    },
+    {
+        path: "/workspaces/option/teams",
+        description: "Display all the teams",
+        iconPath: "src/actions/workspaces/option/teams/team_icons/teams.png"
+    },
+    {
+        path: "/workspaces/option/teams/option/projects",
+        description: "Display all the projects",
+        iconPath: "src/actions/workspaces/option/teams/option/projects/project_icons/project.png"
+    },
+    {
+        path: "/workspaces/option/teams/option/users",
+        description: "Display all users of the team",
+        iconPath: "src/actions/workspaces/option/teams/option/users/user_icons/users.png"
+    }
+]
 
 module.exports = {
     entry: entryPaths.reduce((result, entryPath) => {
@@ -59,11 +74,25 @@ module.exports = {
         ]
     },
     plugins: [
-        new CopyPlugin({
-          patterns: copyPatterns,
-          options: {
-            concurrency: 100,
-          },
+        new WBMetaJsonGenerator({
+            environment,
+            package: "Asana",
+            packageDescription: "workerB package for asana.com",
+            packageIcon: "/src/logo.png",
+            readmeFile: "README.md",
+            sites: ["https://www.asana.com"],
+            folderDescriptionList
         })
-    ]
+    ],
+    optimization: {
+        minimizer: [
+          new UglifyJsPlugin({
+            uglifyOptions: {
+              output: {
+                comments: /(@description|@name|@ignore)/i,
+              },
+            }
+          }),
+        ],
+    }
 }
