@@ -1,4 +1,4 @@
-
+// @description Setup the asana automation package
 open("https://app.asana.com/0/developer-console")
 click('New access token')
 

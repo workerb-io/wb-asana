@@ -1,6 +1,7 @@
 # package directories
 node_modules
 package-lock.json
+yarn.lock
 jspm_packages
 .firebase
 firebase-debug.log
@@ -13,3 +14,5 @@ data
 env.json
 
 .idea
+.vscode
+dist

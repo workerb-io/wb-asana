@@ -1,14 +1,14 @@
-import { accessToken } from '../utils/constants'
+import { ACCESS_TOKEN } from '../utils/constants'
 
 const returnOptions = () => {
-	if (!accessToken) {
+	if (!ACCESS_TOKEN) {
 		return JSON.stringify({
-			remove: ['workSpaces'],
-		})
+			remove: ['workSpaces']
+		});
 	} else {
 		return JSON.stringify({
-			remove: ['setup'],
-		})
+			remove: ['setup']
+		});
 	}
 }
 
