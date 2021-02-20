@@ -3,17 +3,25 @@ export interface DecodedAPIResponse {
 	status: number;
 }
 
-export interface Workspace {
+export interface Resource {
 	gid: number;
 	name: string;
 	resource_type: string;
+}
+
+export interface Workspace extends Resource {
 	is_organization: boolean;
 }
 
-export interface Team {
-	gid: number;
-	name: string;
-	resource_type: string;
+export interface Team extends Resource {
 	permalink_url: string;
 	description?: string;
+}
+
+export interface Project extends Resource {
+	permalink_url: string;
+	archived?: boolean;
+	color?: string | null;
+	notes?: string;
+	icon?: string | null;
 }

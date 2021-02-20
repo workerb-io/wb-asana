@@ -30,6 +30,11 @@ const folderDescriptionList = [
         path: "/workspaces/option/teams",
         description: "Display all the teams",
         iconPath: "src/actions/workspaces/option/teams/team_icons/teams.png"
+    },
+    {
+        path: "/workspaces/option/teams/option/projects",
+        description: "Display all the projects",
+        iconPath: "/src/actions/workspaces/option/teams/option/projects/project_icons/project.png"
     }
 ]
 

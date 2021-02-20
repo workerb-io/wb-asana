@@ -12,7 +12,6 @@ const returnOptions = () => {
 				...team,
 				description: `${team.name} team`
 			}));
-			log(JSON.stringify(teams));
 		} else {
 			// Handle API Errors
 			log(`TEAMS NOT FOUND FOR WORKSPACE ${JSON.stringify(workspace)}`, "#FF5733");
