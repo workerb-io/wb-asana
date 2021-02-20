@@ -22,9 +22,14 @@ const entryPaths = helpers.getFiles(entryFiles, ".ts").map(file => file.replace(
 
 const folderDescriptionList = [
     {
-        path: "/workSpaces", 
-        iconPath: "src/actions/workSpaces/workspace_icons/workspace.png",
-        description: "Display all the workspaces"
+        path: "/workspaces", 
+        description: "Display all the workspaces",
+        iconPath: "src/actions/workspaces/workspace_icons/workspace.png"
+    },
+    {
+        path: "/workspaces/option/teams",
+        description: "Display all the teams",
+        iconPath: "src/actions/workspaces/option/teams/team_icons/teams.png"
     }
 ]
 

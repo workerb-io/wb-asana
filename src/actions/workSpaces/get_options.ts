@@ -3,15 +3,14 @@ import { Workspace } from "../../utils/interfaces"
 
 const returnOptions = () => {
     const { response } = getWorkspaces();
-    const workspaces = response.data as Workspace[];
+    const workspaceList = response.data as Workspace[];
+    const workspaces = workspaceList.map(workspace => ({
+        ...workspace,
+        description: `${workspace.name} workspace`
+    }));
 
     return {
-        add: workspaces.map(
-            (workspace: Workspace) => ({
-                ...workspace,
-                description: `${workspace.name} workspace`
-            })
-        )
+        add: workspaces
     };
 }
 

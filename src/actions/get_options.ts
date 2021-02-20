@@ -3,7 +3,7 @@ import { ACCESS_TOKEN } from '../utils/constants'
 const returnOptions = () => {
 	if (!ACCESS_TOKEN) {
 		return JSON.stringify({
-			remove: ['workSpaces']
+			remove: ['workspaces']
 		});
 	} else {
 		return JSON.stringify({
