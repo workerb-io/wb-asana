@@ -1,8 +1,8 @@
-import { API_URL } from './constants'
-import { DecodedAPIResponse } from './interfaces'
+import { API_URL } from './constants';
+import { DecodedAPIResponse } from './interfaces';
 
-export const getUrl = (endPoint: string) : string => {
-	return API_URL + endPoint
+export const getUrl = (endPoint: string): string => {
+	return API_URL + endPoint;
 }
 
 export const decodeApiResponse = (result: APIResponse): DecodedAPIResponse => {
@@ -10,11 +10,11 @@ export const decodeApiResponse = (result: APIResponse): DecodedAPIResponse => {
 		return {
 			response: {},
 			status: result.status
-		}
+		};
 	}
 
 	return {
 		response: JSON.parse(result.response),
 		status: result.status
-	}
+	};
 }

@@ -12,4 +12,4 @@ const returnOptions = () => {
 	}
 }
 
-export default returnOptions
+export default returnOptions;
