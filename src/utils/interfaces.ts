@@ -25,3 +25,7 @@ export interface Project extends Resource {
 	notes?: string;
 	icon?: string | null;
 }
+
+export interface User extends Resource {
+	permalink_url: string;
+}

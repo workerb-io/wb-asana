@@ -30,3 +30,11 @@ export const getTeamProjects = (teamId: number): DecodedAPIResponse => {
         })
     );
 }
+
+export const getTeamUsers = (teamId: number): DecodedAPIResponse => {
+    return decodeApiResponse(
+        httpGet(getUrl(`/teams/${teamId}/users?limit=10`), {
+            Authorization: `Bearer ${ACCESS_TOKEN}`
+        })
+    );
+}
