@@ -44,6 +44,19 @@ export interface ProjectRequestData {
 	data: ProjectRequest
 }
 
+export interface ProjectUpdateRequest {
+	name?: string;
+	archived?: boolean;
+	color?: string | null;
+	notes?: string;
+	public?: boolean;
+	team?: any;
+}
+
+export interface ProjectUpdateData {
+	data: ProjectUpdateRequest;
+}
+
 export interface User extends Resource {
 	permalink_url: string;
 }

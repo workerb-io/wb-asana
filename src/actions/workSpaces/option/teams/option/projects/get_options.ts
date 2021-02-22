@@ -13,7 +13,7 @@ const returnOptions = () => {
 			projects = projectsResponse.response.data as Project[];
 			projects = projects.map(project => ({
 				...project,
-				description: project.notes ? project.notes : project.name
+				description: getProjectDescription(project)
 			}));
 		} else {
 			// Handle API Errors
@@ -24,6 +24,12 @@ const returnOptions = () => {
 	return {
 		add: projects
 	};
+}
+
+const getProjectDescription = (project: Project) => {
+	let description = project.notes ? project.notes : project.name;
+	description += ` ${project.archived ? "(Archived)" : ""}`;
+	return description;
 }
 
 export default returnOptions;

@@ -1,11 +1,11 @@
 import { ACCESS_TOKEN } from "./constants";
 import { decodeApiResponse, getUrl } from "./helper";
-import { DecodedAPIResponse, ProjectRequestData } from "./interfaces";
+import { DecodedAPIResponse, ProjectRequestData, ProjectUpdateData } from "./interfaces";
 
 const RESOURCE_OPTIONS: string[] = ["gid", "name", "resource_type"];
 const WORKSPACE_OPTIONS: string = [...RESOURCE_OPTIONS, "is_organization"].join(",");
 const TEAM_OPTIONS: string = [...RESOURCE_OPTIONS, "permalink_url"].join(",");
-const PROJECT_OPTIONS: string = [...RESOURCE_OPTIONS, "permalink_url", "notes", "icon"].join(",");
+const PROJECT_OPTIONS: string = [...RESOURCE_OPTIONS, "permalink_url", "notes", "icon", "archived"].join(",");
 
 export const getWorkspaces = (): DecodedAPIResponse => {
     log(ACCESS_TOKEN);
@@ -70,6 +70,14 @@ export const createProjectInTeam = (teamId: number, projectData: ProjectRequestD
             Authorization: `Bearer ${ACCESS_TOKEN}`
         })
     );
+}
+
+export const updateProject = (projectId: number, projectData: ProjectUpdateData): DecodedAPIResponse => {
+    return decodeApiResponse(
+        httpPut(getUrl(`/projects/${projectId}`), JSON.stringify(projectData), {
+            Authorization: `Bearer ${ACCESS_TOKEN}`
+        })
+    )
 }
 
 export const deleteProjectFromAll = (projectId: number): DecodedAPIResponse => {
