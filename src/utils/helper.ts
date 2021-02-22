@@ -1,5 +1,5 @@
 import { API_URL } from './constants';
-import { DecodedAPIResponse } from './interfaces';
+import { DecodedAPIResponse, ErrorResponse } from './interfaces';
 
 export const getUrl = (endPoint: string): string => {
 	return API_URL + endPoint;
@@ -17,4 +17,8 @@ export const decodeApiResponse = (result: APIResponse): DecodedAPIResponse => {
 		response: JSON.parse(result.response),
 		status: result.status
 	};
+}
+
+export const getAPIErrorMessage = (errorResponse: any): string => {
+	return errorResponse.errors.map((error: ErrorResponse) => error.message).join(" ");
 }

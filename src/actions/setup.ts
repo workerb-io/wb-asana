@@ -19,7 +19,7 @@ if (!token) {
 } else {
     setVars([
         {
-            name: 'accessToken',
+            name: 'asanaAccessToken',
             value: token,
         },
     ], { local: true });

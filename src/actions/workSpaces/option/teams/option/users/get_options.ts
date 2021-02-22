@@ -1,5 +1,8 @@
 import { getTeamUsers } from "../../../../../../utils/api";
+import { getAPIErrorMessage } from "../../../../../../utils/helper";
 import { Team, User } from "../../../../../../utils/interfaces";
+
+// @description Get all team users
 
 const returnOptions = () => {
 	let users: User[] = [];
@@ -9,8 +12,7 @@ const returnOptions = () => {
 		if (usersResponse.status === 200) {
 			users = usersResponse.response.data;
 		} else {
-			// Handle API Errors
-			log(`USERS NOT FOUND FOR TEAM ${JSON.stringify(team)}`, "#FF5733");
+			log(getAPIErrorMessage(usersResponse.response), "#FF5733");
 		}
 	}
 

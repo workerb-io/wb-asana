@@ -1,14 +1,14 @@
-import { getTeamProjects } from "../../../../../../utils/api";
-import { getAPIErrorMessage } from "../../../../../../utils/helper";
-import { Project, Team } from "../../../../../../utils/interfaces";
+import { getWorkspaceProjects } from "../../../../utils/api";
+import { getAPIErrorMessage } from "../../../../utils/helper";
+import { Project, Workspace } from "../../../../utils/interfaces";
 
-// @description Get all team projects
+// @description Get all workspace projects
 
 const returnOptions = () => {
 	let projects: Project[] = [];
-	if (options.teams) {
-		const team = options.teams as Team;
-		const projectsResponse = getTeamProjects(team.gid);
+	if (options.workspaces) {
+		const workspace = options.workspaces as Workspace;
+		const projectsResponse = getWorkspaceProjects(workspace.gid);
 		if (projectsResponse.status === 200) {
 			projects = projectsResponse.response.data as Project[];
 			projects = projects.map(project => ({
@@ -16,7 +16,6 @@ const returnOptions = () => {
 				description: getProjectDescription(project)
 			}));
 		} else {
-			// Handle API Errors
 			log(getAPIErrorMessage(projectsResponse.response), "#FF5733");
 		}
 	}
