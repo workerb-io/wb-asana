@@ -1,3 +1,8 @@
+export interface ErrorResponse {
+	message: string;
+	phrase: string;
+}
+
 export interface DecodedAPIResponse {
 	response: any;
 	status: number;
@@ -24,6 +29,19 @@ export interface Project extends Resource {
 	color?: string | null;
 	notes?: string;
 	icon?: string | null;
+}
+
+export interface ProjectRequest {
+	name: string;
+	archived: boolean;
+	color?: string | null;
+	notes: string;
+	public?: boolean;
+	team?: any;
+}
+
+export interface ProjectRequestData {
+	data: ProjectRequest
 }
 
 export interface User extends Resource {
