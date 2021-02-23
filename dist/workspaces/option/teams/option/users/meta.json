@@ -1,0 +1,11 @@
+{
+		"name": "users",
+		"description": "Display all users of the team",
+		"icon": "icons/users-ccde2fd9-c920-4a3c-956b-a9ec33c14cc7.png",
+		"scripts": [{
+	  "name": "get_options",
+	  "file": "get_options.js",
+	  "type": "action",
+	  "description": ""
+	}]
+	}

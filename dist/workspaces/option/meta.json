@@ -1,0 +1,25 @@
+{
+		"name": "option",
+		"description": "",
+		"scripts": [{
+	  "name": "get_options",
+	  "file": "get_options.js",
+	  "type": "action",
+	  "description": ""
+	},{
+	  "name": "open",
+	  "file": "open.js",
+	  "type": "action",
+	  "description": "Open Workspace"
+	},{
+	  "name": "projects",
+	  "file": "projects",
+	  "type": "folder",
+	  "description": "Display all workspace projects"
+	},{
+	  "name": "teams",
+	  "file": "teams",
+	  "type": "folder",
+	  "description": "Display all the teams"
+	}]
+	}

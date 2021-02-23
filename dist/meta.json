@@ -1,0 +1,21 @@
+{
+		"name": "Asana",
+		"description": "workerB package for asana.com",
+		"icon": "icons/logo-cd87c663-cd54-4176-9f32-802f4e72513b.png",
+		"scripts": [{
+	  "name": "get_options",
+	  "file": "get_options.js",
+	  "type": "action",
+	  "description": ""
+	},{
+	  "name": "setup",
+	  "file": "setup.js",
+	  "type": "action",
+	  "description": "Setup the asana automation package"
+	},{
+	  "name": "workspaces",
+	  "file": "workspaces",
+	  "type": "folder",
+	  "description": "Display all the workspaces"
+	}]
+	}
