@@ -1,6 +1,6 @@
 import { ACCESS_TOKEN } from "./constants";
 import { decodeApiResponse, getUrl } from "./helper";
-import { DecodedAPIResponse, ProjectRequestData, ProjectUpdateData } from "./interfaces";
+import { CreateSectionData, DecodedAPIResponse, ProjectRequestData, ProjectUpdateData } from "./interfaces";
 
 const RESOURCE_OPTIONS: string[] = ["gid", "name", "resource_type"];
 const WORKSPACE_OPTIONS: string = [...RESOURCE_OPTIONS, "is_organization"].join(",");
@@ -93,5 +93,13 @@ export const getProjectSections = (projectId: number): DecodedAPIResponse => {
         httpGet(getUrl(`/projects/${projectId}/sections`), {
             Authorization: `Bearer ${ACCESS_TOKEN}`
         }),
+    );
+}
+
+export const createProjectSection = (projectId: number, sectionData: CreateSectionData): DecodedAPIResponse => {
+    return decodeApiResponse(
+        httpPost(getUrl(`/projects/${projectId}/sections`), JSON.stringify(sectionData), {
+            Authorization: `Bearer ${ACCESS_TOKEN}`
+        })
     );
 }

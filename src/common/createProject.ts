@@ -4,7 +4,7 @@ import { getAPIErrorMessage } from "../utils/helper";
 import { DecodedAPIResponse, ErrorResponse, ProjectRequestData } from "../utils/interfaces";
 
 const createProject = (projectType: 'workspace' | 'team', gid: number) => {
-	let projectName: string | null = args[0]
+	let projectName: string | null = args[0];
 	let isPublic = true;
 	let isArchived = false;
 	let projectNotes = "";

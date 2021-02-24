@@ -64,3 +64,13 @@ export interface User extends Resource {
 export interface Section extends Resource {
 
 }
+
+export interface CreateSectionRequest {
+	name: string;
+	insert_after?: number;
+	insert_before?: number;
+}
+
+export interface CreateSectionData {
+	data: CreateSectionRequest
+}
