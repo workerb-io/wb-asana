@@ -1,7 +1,7 @@
 import { createProjectInTeam, createProjectInWorkspace } from "../utils/api";
 import { WORKSPACES } from "../utils/constants";
 import { getAPIErrorMessage } from "../utils/helper";
-import { DecodedAPIResponse, ErrorResponse, ProjectRequestData } from "../utils/interfaces";
+import { DecodedAPIResponse, ProjectRequestData } from "../utils/interfaces";
 
 const createProject = (projectType: 'workspace' | 'team', gid: number) => {
 	let projectName: string | null = args[0];

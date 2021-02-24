@@ -103,3 +103,11 @@ export const createProjectSection = (projectId: number, sectionData: CreateSecti
         })
     );
 }
+
+export const deleteSection = (sectionId: number): DecodedAPIResponse => {
+    return decodeApiResponse(
+        httpDelete(getUrl(`/sections/${sectionId}`), {}, {
+            Authorization: `Bearer ${ACCESS_TOKEN}`
+        })
+    );
+}
