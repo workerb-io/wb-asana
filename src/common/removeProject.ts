@@ -1,7 +1,7 @@
 import { deleteProjectFromAll } from "../utils/api";
 import { getAPIErrorMessage } from "../utils/helper";
 
-const deleteProject = (projectId: number) => {
+const removeProject = (projectId: number) => {
 	const deleteResponse = deleteProjectFromAll(projectId);
 	if (deleteResponse.status === 200) {
 		notify("Successfully deleted the project", "success", 3000);
@@ -10,4 +10,4 @@ const deleteProject = (projectId: number) => {
 	}
 }
 
-export default deleteProject;
+export default removeProject;
