@@ -85,5 +85,13 @@ export const deleteProjectFromAll = (projectId: number): DecodedAPIResponse => {
         httpDelete(getUrl(`/projects/${projectId}`), {}, {
             Authorization: `Bearer ${ACCESS_TOKEN}`
         })
-    )
+    );
+}
+
+export const getProjectSections = (projectId: number): DecodedAPIResponse => {
+    return decodeApiResponse(
+        httpGet(getUrl(`/projects/${projectId}/sections`), {
+            Authorization: `Bearer ${ACCESS_TOKEN}`
+        }),
+    );
 }

@@ -60,3 +60,7 @@ export interface ProjectUpdateData {
 export interface User extends Resource {
 	permalink_url: string;
 }
+
+export interface Section extends Resource {
+
+}
