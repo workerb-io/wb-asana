@@ -1,9 +1,13 @@
 import archiveProject from "../../../../../../../common/archiveProject";
-import { Project } from "../../../../../../../utils/interfaces";
+import { PROJECTS, TEAMS, WORKSPACES } from "../../../../../../../utils/constants";
+import { Project, Team, Workspace } from "../../../../../../../utils/interfaces";
 
 // @description Archive Project
 
-if (options.projects) {
+if (options.workspaces && options.teams && options.projects) {
+	const workspace = options.workspaces as Workspace;
+	const team = options.teams as Team;
 	const project = options.projects as Project;
-	archiveProject(project.gid);
+	const indexPath: string[] = [WORKSPACES, workspace.name, TEAMS, team.name, PROJECTS];
+	archiveProject(project.gid, indexPath);
 }

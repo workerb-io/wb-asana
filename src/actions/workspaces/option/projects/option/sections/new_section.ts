@@ -1,9 +1,12 @@
 import createSection from "../../../../../../common/createSection";
-import { Project } from "../../../../../../utils/interfaces";
+import { PROJECTS, SECTIONS, WORKSPACES } from "../../../../../../utils/constants";
+import { Project, Workspace } from "../../../../../../utils/interfaces";
 
-// @description Create new section in project
+// @description Create new section
 
-if (options.projects) {
+if (options.workspaces && options.projects) {
+	const workspace = options.workspaces as Workspace;
 	const project = options.projects as Project;
-	createSection(project.gid);
+	const indexPath: string[] = [WORKSPACES, workspace.name, PROJECTS, project.name, SECTIONS];
+	createSection(project.gid, indexPath);
 }

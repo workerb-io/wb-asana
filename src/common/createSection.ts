@@ -2,7 +2,7 @@ import { createProjectSection } from "../utils/api";
 import { getAPIErrorMessage } from "../utils/helper";
 import { CreateSectionData } from "../utils/interfaces";
 
-const createSection = (projectId: number) => {
+const createSection = (projectId: number, indexPath: string[]) => {
 	let sectionName: string | null = args[0];
 
 	if (!sectionName) {
@@ -17,6 +17,7 @@ const createSection = (projectId: number) => {
 		};
 		let sectionResponse = createProjectSection(projectId, sectionData);
 		if (sectionResponse.status === 201) {
+			reIndex(indexPath);
 			notify("Section created successfully", "success", 3000);
 		} else {
 			notify(getAPIErrorMessage(sectionResponse.response), "error", 3000);

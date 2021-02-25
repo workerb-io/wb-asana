@@ -1,9 +1,8 @@
 import { createProjectInTeam, createProjectInWorkspace } from "../utils/api";
-import { WORKSPACES } from "../utils/constants";
 import { getAPIErrorMessage } from "../utils/helper";
 import { DecodedAPIResponse, ProjectRequestData } from "../utils/interfaces";
 
-const createProject = (projectType: 'workspace' | 'team', gid: number) => {
+const createProject = (projectType: 'workspace' | 'team', gid: number, indexPath: string[]) => {
 	let projectName: string | null = args[0];
 	let isPublic = true;
 	let isArchived = false;
@@ -29,7 +28,7 @@ const createProject = (projectType: 'workspace' | 'team', gid: number) => {
 			projectResponse = createProjectInTeam(gid, projectData);
 		}
 		if (projectResponse.status === 201) {
-			reIndex([WORKSPACES]);
+			reIndex(indexPath);
 			notify("Project Created Successfully", "success", 3000);
 		} else {
 			notify(getAPIErrorMessage(projectResponse.response), "error", 3000);
