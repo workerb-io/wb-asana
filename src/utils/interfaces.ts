@@ -1,3 +1,6 @@
+export type ProjectType = "workspace" | "team";
+export type SectionType = "section" | "project";
+
 export interface ErrorResponse {
 	message: string;
 	phrase: string;
@@ -51,6 +54,7 @@ export interface ProjectUpdateRequest {
 	notes?: string;
 	public?: boolean;
 	team?: any;
+	owner?: string | null;
 }
 
 export interface ProjectUpdateData {
@@ -73,4 +77,44 @@ export interface CreateSectionRequest {
 
 export interface CreateSectionData {
 	data: CreateSectionRequest
+}
+
+export interface UpdateSectionRequest {
+	name: string;
+	project: string;
+	insert_after?: string;
+	insert_before?: string;
+}
+
+export interface UpdateSectionData {
+	data: UpdateSectionRequest
+}
+
+export type TaskDescription = "Scoped" | "Assigned" | "Completed";
+
+export interface Task extends Resource {
+	completed: boolean;
+	assignee?: string | null;
+	description?: TaskDescription
+}
+
+export interface UpdateTaskRequest {
+	approval_status?: string;
+	assignee?: string | null;
+	completed?: boolean;
+	due_at?: string | null;
+	due_on?: string | null;
+	liked?: boolean;
+	name?: string;
+	notes?: string;
+	parent?: string | null;
+	projects?: string[];
+	resource_subtype?: string;
+	start_on?: string | null;
+	tags?: string[];
+	workspace?: string;
+}
+
+export interface UpdateTaskData {
+	data: UpdateTaskRequest;
 }

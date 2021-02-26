@@ -1,10 +1,10 @@
 import { getTeamProjects, getWorkspaceProjects } from "../utils/api";
 import { getAPIErrorMessage } from "../utils/helper";
-import { DecodedAPIResponse, Project } from "../utils/interfaces"
+import { DecodedAPIResponse, Project, ProjectType } from "../utils/interfaces"
 
 // gid can be workspaceid or teamid
 
-const retrieveProjects = (type: "workspace" | "team", gid: number): Project[] => {
+const retrieveProjects = (type: ProjectType, gid: number): Project[] => {
 	let projects: Project[] = [];
 	let projectsResponse = <DecodedAPIResponse>{};
 	if (type === "workspace") {

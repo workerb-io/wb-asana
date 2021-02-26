@@ -20,33 +20,35 @@ if(mode.length > 0 && mode[0].includes("dev")) {
 
 const entryPaths = helpers.getFiles(entryFiles, ".ts").map(file => file.replace('.ts', ''));
 
-const folderDescriptionList = [
-    {
-        path: "/workspaces", 
-        description: "Display all the workspaces",
-        iconPath: "src/actions/workspaces/workspace_icons/workspace.png"
-    },
-    {
-        path: "/workspaces/option/teams",
-        description: "Display all the teams",
-        iconPath: "src/actions/workspaces/option/teams/team_icons/teams.png"
-    },
-    {
-        path: "/workspaces/option/projects",
-        description: "Display all workspace projects",
-        iconPath: "src/actions/workspaces/option/projects/project_icons/project.png"
-    },
-    {
-        path: "/workspaces/option/teams/option/projects",
-        description: "Display all team projects",
-        iconPath: "src/actions/workspaces/option/teams/option/projects/project_icons/project.png"
-    },
-    {
-        path: "/workspaces/option/teams/option/users",
-        description: "Display all users of the team",
-        iconPath: "src/actions/workspaces/option/teams/option/users/user_icons/users.png"
-    }
-]
+// const folderDescriptionList = [
+//     {
+//         path: "/workspaces", 
+//         description: "Display all the workspaces",
+//         iconPath: "src/actions/workspaces/workspace_icons/workspace.png"
+//     },
+//     {
+//         path: "/workspaces/option/teams",
+//         description: "Display all the teams",
+//         iconPath: "src/actions/workspaces/option/teams/team_icons/teams.png"
+//     },
+//     {
+//         path: "/workspaces/option/workspace_projects",
+//         description: "Display all workspace projects",
+//         iconPath: "src/actions/workspaces/option/workspace_projects/project_icons/project.png"
+//     },
+//     {
+//         path: "/workspaces/option/teams/option/projects",
+//         description: "Display all team projects",
+//         iconPath: "src/actions/workspaces/option/teams/option/projects/project_icons/project.png"
+//     },
+//     {
+//         path: "/workspaces/option/teams/option/users",
+//         description: "Display all users of the team",
+//         iconPath: "src/actions/workspaces/option/teams/option/users/user_icons/users.png"
+//     }
+// ]
+
+const folderDescriptionList = [];
 
 module.exports = {
     entry: entryPaths.reduce((result, entryPath) => {

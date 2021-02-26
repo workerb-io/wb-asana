@@ -1,11 +1,12 @@
 import { ACCESS_TOKEN } from "./constants";
 import { decodeApiResponse, getUrl } from "./helper";
-import { CreateSectionData, DecodedAPIResponse, ProjectRequestData, ProjectUpdateData } from "./interfaces";
+import { CreateSectionData, DecodedAPIResponse, ProjectRequestData, ProjectUpdateData, UpdateSectionData, UpdateTaskData } from "./interfaces";
 
 const RESOURCE_OPTIONS: string[] = ["gid", "name", "resource_type"];
 const WORKSPACE_OPTIONS: string = [...RESOURCE_OPTIONS, "is_organization"].join(",");
 const TEAM_OPTIONS: string = [...RESOURCE_OPTIONS, "permalink_url"].join(",");
 const PROJECT_OPTIONS: string = [...RESOURCE_OPTIONS, "permalink_url", "notes", "icon", "archived"].join(",");
+const TASK_OPTIONS: string = [...RESOURCE_OPTIONS, "assignee", "completed"].join(",");
 
 export const getWorkspaces = (): DecodedAPIResponse => {
     log(ACCESS_TOKEN);
@@ -90,7 +91,7 @@ export const deleteProjectFromAll = (projectId: number): DecodedAPIResponse => {
 
 export const getProjectSections = (projectId: number): DecodedAPIResponse => {
     return decodeApiResponse(
-        httpGet(getUrl(`/projects/${projectId}/sections`), {
+        httpGet(getUrl(`/projects/${projectId}/sections?limit=10`), {
             Authorization: `Bearer ${ACCESS_TOKEN}`
         }),
     );
@@ -107,6 +108,38 @@ export const createProjectSection = (projectId: number, sectionData: CreateSecti
 export const deleteSection = (sectionId: number): DecodedAPIResponse => {
     return decodeApiResponse(
         httpDelete(getUrl(`/sections/${sectionId}`), {}, {
+            Authorization: `Bearer ${ACCESS_TOKEN}`
+        })
+    );
+}
+
+export const updateSection = (sectionId: number, sectionData: UpdateSectionData): DecodedAPIResponse => {
+    return decodeApiResponse(
+        httpPut(getUrl(`/sections/${sectionId}`), JSON.stringify(sectionData), {
+            Authorization: `Bearer ${ACCESS_TOKEN}`
+        })
+    );
+}
+
+export const getProjectTasks = (projectId: number): DecodedAPIResponse => {
+    return decodeApiResponse(
+        httpGet(getUrl(`/projects/${projectId}/tasks?opt_fields=${TASK_OPTIONS}&limit=50`), {
+            Authorization: `Bearer ${ACCESS_TOKEN}`
+        })
+    );
+}
+
+export const getSectionTasks = (sectionId: number): DecodedAPIResponse => {
+    return decodeApiResponse(
+        httpGet(getUrl(`/sections/${sectionId}/tasks?opt_fields=${TASK_OPTIONS}&limit=30`), {
+            Authorization: `Bearer ${ACCESS_TOKEN}`
+        })
+    );
+}
+
+export const updateTask = (taskId: number, taskData: UpdateTaskData): DecodedAPIResponse => {
+    return decodeApiResponse(
+        httpPut(getUrl(`/tasks/${taskId}`), JSON.stringify(taskData), {
             Authorization: `Bearer ${ACCESS_TOKEN}`
         })
     );

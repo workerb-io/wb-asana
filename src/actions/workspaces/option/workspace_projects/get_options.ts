@@ -5,6 +5,8 @@ import { Project, Workspace } from "../../../../utils/interfaces";
 
 const returnOptions = () => {
 	let projects: Project[] = [];
+	log("WORKSPACE GET PROJECTS")
+	log(JSON.stringify(options));
 	if (options.workspaces) {
 		const workspace = options.workspaces as Workspace;
 		projects = retrieveProjects("workspace", workspace.gid);
