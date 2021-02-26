@@ -81,7 +81,7 @@ export interface CreateSectionData {
 
 export interface UpdateSectionRequest {
 	name: string;
-	project: string;
+	project?: string;
 	insert_after?: string;
 	insert_before?: string;
 }
@@ -94,7 +94,6 @@ export type TaskDescription = "Scoped" | "Assigned" | "Completed";
 
 export interface Task extends Resource {
 	completed: boolean;
-	assignee?: string | null;
 	description?: TaskDescription
 }
 

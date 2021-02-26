@@ -16,7 +16,8 @@ const retrieveTasks = (type: SectionType, gid: number): Task[] => {
 		tasks = tasksResponse.response.data;
 		tasks = tasks.map(task => {
 			return {
-				...task
+				...task,
+				description: getTaskDescription(task)
 			}
 		});
 	} else {
@@ -26,15 +27,7 @@ const retrieveTasks = (type: SectionType, gid: number): Task[] => {
 }
 
 const getTaskDescription = (task: Task): TaskDescription => {
-	let description: TaskDescription = "Completed";
-	if (!task.completed) {
-		if (task.assignee) {
-			description = "Assigned";
-		} else {
-			description = "Scoped";
-		}
-	}
-	return description;
+	return task.completed ? "Completed" : "Assigned";
 }
 
 export default retrieveTasks;

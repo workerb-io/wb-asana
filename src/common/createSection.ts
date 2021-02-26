@@ -17,7 +17,7 @@ const createSection = (projectId: number, indexPath: string[]) => {
 		};
 		let sectionResponse = createProjectSection(projectId, sectionData);
 		if (sectionResponse.status === 201) {
-			reIndex(indexPath);
+			// reIndex(indexPath);
 			notify("Section created successfully", "success", 3000);
 		} else {
 			notify(getAPIErrorMessage(sectionResponse.response), "error", 3000);
