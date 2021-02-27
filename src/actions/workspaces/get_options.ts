@@ -1,13 +1,8 @@
-import { getWorkspaces } from "../../utils/api"
-import { Workspace } from "../../utils/interfaces"
+import retrieveWorkspaces from "../../common/retrieveWorkspaces";
 
 const returnOptions = () => {
-    const { response } = getWorkspaces();
-    const workspaceList = response.data as Workspace[];
-    const workspaces = workspaceList.map(workspace => ({
-        ...workspace,
-        description: `${workspace.name} workspace`
-    }));
+
+    const workspaces = retrieveWorkspaces();
 
     return {
         add: workspaces

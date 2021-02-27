@@ -2,7 +2,7 @@ import createProject from "../../../../../../common/createProject";
 import { PROJECTS, TEAMS, WORKSPACES } from "../../../../../../utils/constants";
 import { Team, Workspace } from "../../../../../../utils/interfaces";
 
-// @description Create new Project in Team
+// @description Create new Project
 
 if (options.workspaces && options.teams) {
 	const workspace = options.workspaces as Workspace;

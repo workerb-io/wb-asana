@@ -1,9 +1,8 @@
-import { Project, Task } from "../../../../../../../../../../../utils/interfaces";
+import { Task } from "../../../../../../../../../../../utils/interfaces";
 
 // @description Open Task
 
-if(options.projects && options.tasks) {
-    const project = options.projects as Project;
+if(options.tasks) {
     const task = options.tasks as Task;
-    open(`https://app.asana.com/0/${project.gid}/${task.gid}`);
+    open(task.permalink_url);
 }

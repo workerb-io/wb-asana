@@ -1,5 +1,6 @@
 export type ProjectType = "workspace" | "team";
 export type SectionType = "section" | "project";
+export type UserType = "workspace" | "team";
 
 export interface ErrorResponse {
 	message: string;
@@ -94,6 +95,7 @@ export type TaskDescription = "Scoped" | "Assigned" | "Completed";
 
 export interface Task extends Resource {
 	completed: boolean;
+	permalink_url: string;
 	description?: TaskDescription
 }
 

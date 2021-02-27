@@ -1,7 +1,7 @@
 import retrieveProjects from "../../../../../../common/retrieveProjects";
 import { Project, Team } from "../../../../../../utils/interfaces";
 
-// @description Get all team projects
+// @description Get all projects of the team
 
 const returnOptions = () => {
 	let projects: Project[] = [];
