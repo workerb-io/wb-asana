@@ -27,7 +27,7 @@ const retrieveTasks = (type: SectionType, gid: number): Task[] => {
 }
 
 const getTaskDescription = (task: Task): TaskDescription => {
-	return task.completed ? "Completed" : "Assigned";
+	return task.completed ? "Completed" : "Scoped";
 }
 
 export default retrieveTasks;

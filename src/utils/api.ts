@@ -1,6 +1,6 @@
 import { ACCESS_TOKEN } from "./constants";
 import { decodeApiResponse, getUrl } from "./helper";
-import { CreateSectionData, DecodedAPIResponse, ProjectRequestData, ProjectUpdateData, UpdateSectionData, UpdateTaskData } from "./interfaces";
+import { AddProjectToTaskData, CreateSectionData, CreateTaskRequestData, DecodedAPIResponse, ProjectRequestData, ProjectUpdateData, UpdateSectionData, UpdateTaskData } from "./interfaces";
 
 const RESOURCE_OPTIONS: string[] = ["gid", "name", "resource_type"];
 const WORKSPACE_OPTIONS: string = [...RESOURCE_OPTIONS, "is_organization"].join(",");
@@ -132,6 +132,22 @@ export const getProjectTasks = (projectId: number): DecodedAPIResponse => {
 export const getSectionTasks = (sectionId: number): DecodedAPIResponse => {
     return decodeApiResponse(
         httpGet(getUrl(`/sections/${sectionId}/tasks?opt_fields=${TASK_OPTIONS}&limit=30`), {
+            Authorization: `Bearer ${ACCESS_TOKEN}`
+        })
+    );
+}
+
+export const createWorkspaceTask = (taskData: CreateTaskRequestData): DecodedAPIResponse => {
+    return decodeApiResponse(
+        httpPost(getUrl(`/tasks`), JSON.stringify(taskData), {
+            Authorization: `Bearer ${ACCESS_TOKEN}`
+        })
+    );
+}
+
+export const addProjectToTask = (taskId: number, addProjectData: AddProjectToTaskData) => {
+    return decodeApiResponse(
+        httpPost(getUrl(`/tasks/${taskId}/addProject`), JSON.stringify(addProjectData), {
             Authorization: `Bearer ${ACCESS_TOKEN}`
         })
     );

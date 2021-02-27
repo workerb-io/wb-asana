@@ -97,6 +97,22 @@ export interface Task extends Resource {
 	description?: TaskDescription
 }
 
+export interface CreateTaskRequest {
+	name: string;
+	completed: boolean;
+	workspace: string;
+	assignee?: string | null;
+	due_at?: string | null;
+	due_on?: string | null;
+	notes?: string;
+	projects?: string[];
+	tags?: string[];
+}
+
+export interface CreateTaskRequestData {
+	data: CreateTaskRequest
+}
+
 export interface UpdateTaskRequest {
 	approval_status?: string;
 	assignee?: string | null;
@@ -116,4 +132,15 @@ export interface UpdateTaskRequest {
 
 export interface UpdateTaskData {
 	data: UpdateTaskRequest;
+}
+
+export interface AddProjectToTaskRequest {
+	project: string;
+	section: string;
+	insert_before?: string | null;
+	insert_after?: string | null;
+}
+
+export interface AddProjectToTaskData {
+	data: AddProjectToTaskRequest;
 }
