@@ -37,6 +37,16 @@ const folderDescriptionList = [
         path: "/workspaces/option/teams/option/users",
         description: "Display all users of the team",
         iconPath: "src/actions/workspaces/option/teams/option/users/user_icons/users.png"
+    },
+    {
+        path: "/workspaces/option/teams/option/projects/option/sections",
+        description: "Display all sections in project",
+        iconPath: "src/actions/workspaces/option/teams/option/projects/option/sections/section_icons/section.png"
+    },
+    {
+        path: "/workspaces/option/teams/option/projects/option/sections/option/tasks",
+        description: "Display all tasks",
+        iconPath: "src/actions/workspaces/option/teams/option/projects/option/sections/option/tasks/task_icons/tasks.png"
     }
 ]
 
