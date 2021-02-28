@@ -1,8 +1,5 @@
 
 const path = require('path')
-const CopyPlugin = require('copy-webpack-plugin');
-const webpack = require('webpack');
-const fs = require('fs');
 const helpers = require('./webpack.helpers.js');
 const WBMetaJsonGenerator = require("wb-packager-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");

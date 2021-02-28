@@ -1,8 +1,8 @@
 import { updateSection } from "../utils/api";
 import { getAPIErrorMessage } from "../utils/helper";
-import { Section, UpdateSectionData } from "../utils/interfaces";
+import { UpdateSectionData } from "../utils/interfaces";
 
-const updateSectionName = (section: Section, indexPath = []) => {
+const updateSectionName = (sectionId: number, indexPath:string[] = []) => {
     let sectionName: string | null = args[0];
 
 	if (!sectionName) {
@@ -15,7 +15,7 @@ const updateSectionName = (section: Section, indexPath = []) => {
 				name: sectionName
 			}
 		};
-		let sectionResponse = updateSection(section.gid, sectionData);
+		let sectionResponse = updateSection(sectionId, sectionData);
 		if (sectionResponse.status === 200) {
 			// reIndex(indexPath);
 			notify("Section updated successfully", "success", 3000);
