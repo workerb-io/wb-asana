@@ -1,8 +1,5 @@
 
 const path = require('path')
-const CopyPlugin = require('copy-webpack-plugin');
-const webpack = require('webpack');
-const fs = require('fs');
 const helpers = require('./webpack.helpers.js');
 const WBMetaJsonGenerator = require("wb-packager-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
@@ -32,11 +29,6 @@ const folderDescriptionList = [
         iconPath: "src/actions/workspaces/option/teams/team_icons/teams.png"
     },
     {
-        path: "/workspaces/option/projects",
-        description: "Display all workspace projects",
-        iconPath: "src/actions/workspaces/option/projects/project_icons/project.png"
-    },
-    {
         path: "/workspaces/option/teams/option/projects",
         description: "Display all team projects",
         iconPath: "src/actions/workspaces/option/teams/option/projects/project_icons/project.png"
@@ -45,6 +37,31 @@ const folderDescriptionList = [
         path: "/workspaces/option/teams/option/users",
         description: "Display all users of the team",
         iconPath: "src/actions/workspaces/option/teams/option/users/user_icons/users.png"
+    },
+    {
+        path: "/workspaces/option/teams/option/projects/option/sections",
+        description: "Display all sections in project",
+        iconPath: "src/actions/workspaces/option/teams/option/projects/option/sections/section_icons/section.png"
+    },
+    {
+        path: "/workspaces/option/projects",
+        description: "Display all projects",
+        iconPath: "src/actions/workspaces/option/projects/project_icons/project.png"
+    },
+    {
+        path: "/workspaces/option/teams/option/projects/option/sections/option/tasks",
+        description: "Display all tasks",
+        iconPath: "src/actions/workspaces/option/teams/option/projects/option/sections/option/tasks/task_icons/tasks.png"
+    },
+    {
+        path: "/workspaces/option/projects/option/sections",
+        description: "Display all sections",
+        iconPath: "src/actions/workspaces/option/projects/option/sections/section_icons/section.png"
+    },
+    {
+        path: "/workspaces/option/projects/option/sections/option/tasks",
+        description: "Display all tasks",
+        iconPath: "src/actions/workspaces/option/projects/option/sections/option/tasks/task_icons/tasks.png"
     }
 ]
 

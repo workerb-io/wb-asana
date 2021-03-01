@@ -5,5 +5,6 @@ export const ACCESS_TOKEN = VARS['asanaAccessToken'];
 export const WORKSPACES: string = 'workspaces';
 export const PROJECTS: string = 'projects';
 export const TEAMS: string = 'teams';
+export const SECTIONS: string = 'sections';
 
 export const CREATE_PROJECT_URL: string = `https://app.asana.com/0/projects/new/blank`;
