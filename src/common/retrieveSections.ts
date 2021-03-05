@@ -14,11 +14,10 @@ const retrieveSections = (projectId: number): Section[] => {
 				resource_type: section.resource_type
 			}
 		});
-		return sections;
 	} else {
 		log(getAPIErrorMessage(sectionsResponse.response), "#FF5733");
-		return [];
 	}
+	return sections;
 }
 
 export default retrieveSections;

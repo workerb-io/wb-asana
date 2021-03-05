@@ -2,7 +2,7 @@ import { createWorkspaceTask } from "../utils/api";
 import { AddProjectToTaskData, CreateTaskRequestData } from "../utils/interfaces";
 import addTaskToProject from "./addTaskToProject";
 
-const createTask = (workspaceId: number, projectId: number, sectionId: number) => {
+const createTask = (workspaceId: number, projectId: number, sectionId: number, indexPath: string[] = []) => {
     let taskName: string | null = args[0];
     if(!taskName) {
         taskName = prompt("Task name");
@@ -26,7 +26,7 @@ const createTask = (workspaceId: number, projectId: number, sectionId: number) =
                     section: `${sectionId}`
                 }
             }
-            addTaskToProject(taskId, addProjectData);
+            addTaskToProject(taskId, addProjectData, indexPath);
         }
     } else {
         notify("Please enter the task name", "error", 3000);

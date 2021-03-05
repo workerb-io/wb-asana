@@ -2,7 +2,7 @@ import { updateTask } from "../utils/api";
 import { getAPIErrorMessage } from "../utils/helper";
 import { Task, UpdateTaskData } from "../utils/interfaces";
 
-const completeTask = (task: Task) => {
+const completeTask = (task: Task, indexPath: string[] = []) => {
     if (!task.completed) {
 		const taskData: UpdateTaskData = {
 			data: {
@@ -11,6 +11,7 @@ const completeTask = (task: Task) => {
 		}
 		const taskResponse = updateTask(task.gid, taskData);
 		if (taskResponse.status === 200) {
+			reIndex(indexPath);
 			notify("Task updated successfully", "success", 3000);
 		} else {
 			notify(getAPIErrorMessage(taskResponse.response), "error", 3000);

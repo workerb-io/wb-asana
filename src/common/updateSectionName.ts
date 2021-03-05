@@ -17,7 +17,7 @@ const updateSectionName = (sectionId: number, indexPath:string[] = []) => {
 		};
 		let sectionResponse = updateSection(sectionId, sectionData);
 		if (sectionResponse.status === 200) {
-			// reIndex(indexPath);
+			reIndex(indexPath);
 			notify("Section updated successfully", "success", 3000);
 		} else {
 			notify(getAPIErrorMessage(sectionResponse.response), "error", 3000);

@@ -6,5 +6,6 @@ export const WORKSPACES: string = 'workspaces';
 export const PROJECTS: string = 'projects';
 export const TEAMS: string = 'teams';
 export const SECTIONS: string = 'sections';
+export const TASKS: string = 'tasks';
 
 export const CREATE_PROJECT_URL: string = `https://app.asana.com/0/projects/new/blank`;
