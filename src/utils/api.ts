@@ -19,7 +19,7 @@ export const getWorkspaces = (): DecodedAPIResponse => {
 
 export const getWorkspaceTeams = (workspaceId: number): DecodedAPIResponse => {
     return decodeApiResponse(
-        httpGet(getUrl(`/organizations/${workspaceId}/teams?opt_fields=${TEAM_OPTIONS}&limit=10`), {
+        httpGet(getUrl(`/organizations/${workspaceId}/teams?opt_fields=${TEAM_OPTIONS}&limit=10&date=${new Date().getTime()}`), {
             Authorization: `Bearer ${ACCESS_TOKEN}`
         })
     );
@@ -27,7 +27,7 @@ export const getWorkspaceTeams = (workspaceId: number): DecodedAPIResponse => {
 
 export const getTeamProjects = (teamId: number): DecodedAPIResponse => {
     return decodeApiResponse(
-        httpGet(getUrl(`/teams/${teamId}/projects?opt_fields=${PROJECT_OPTIONS}&limit=10`), {
+        httpGet(getUrl(`/teams/${teamId}/projects?opt_fields=${PROJECT_OPTIONS}&limit=10&date=${new Date().getTime()}`), {
             Authorization: `Bearer ${ACCESS_TOKEN}`
         })
     );
@@ -35,7 +35,7 @@ export const getTeamProjects = (teamId: number): DecodedAPIResponse => {
 
 export const getWorkspaceProjects = (workspaceId: number): DecodedAPIResponse => {
     return decodeApiResponse(
-        httpGet(getUrl(`/workspaces/${workspaceId}/projects?opt_fields=${PROJECT_OPTIONS}&limit=10`), {
+        httpGet(getUrl(`/workspaces/${workspaceId}/projects?opt_fields=${PROJECT_OPTIONS}&limit=10&date=${new Date().getTime()}`), {
             Authorization: `Bearer ${ACCESS_TOKEN}`
         })
     );
@@ -43,7 +43,7 @@ export const getWorkspaceProjects = (workspaceId: number): DecodedAPIResponse =>
 
 export const getTeamUsers = (teamId: number): DecodedAPIResponse => {
     return decodeApiResponse(
-        httpGet(getUrl(`/teams/${teamId}/users?limit=10`), {
+        httpGet(getUrl(`/teams/${teamId}/users?limit=10&date=${new Date().getTime()}`), {
             Authorization: `Bearer ${ACCESS_TOKEN}`
         })
     );
@@ -123,7 +123,7 @@ export const updateSection = (sectionId: number, sectionData: UpdateSectionData)
 
 export const getProjectTasks = (projectId: number): DecodedAPIResponse => {
     return decodeApiResponse(
-        httpGet(getUrl(`/projects/${projectId}/tasks?opt_fields=${TASK_OPTIONS}&limit=50`), {
+        httpGet(getUrl(`/projects/${projectId}/tasks?opt_fields=${TASK_OPTIONS}&limit=10&date=${new Date().getTime()}`), {
             Authorization: `Bearer ${ACCESS_TOKEN}`
         })
     );
@@ -131,7 +131,7 @@ export const getProjectTasks = (projectId: number): DecodedAPIResponse => {
 
 export const getSectionTasks = (sectionId: number): DecodedAPIResponse => {
     return decodeApiResponse(
-        httpGet(getUrl(`/sections/${sectionId}/tasks?opt_fields=${TASK_OPTIONS}&limit=30`), {
+        httpGet(getUrl(`/sections/${sectionId}/tasks?opt_fields=${TASK_OPTIONS}&limit=20&date=${new Date().getTime()}`), {
             Authorization: `Bearer ${ACCESS_TOKEN}`
         })
     );
