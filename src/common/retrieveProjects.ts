@@ -15,10 +15,13 @@ const retrieveProjects = (type: ProjectType, gid: number): Project[] => {
 	}
 	if (projectsResponse.status === 200) {
 		projects = projectsResponse.response.data as Project[];
-		projects = projects.map(project => ({
-			...project,
-			description: getProjectDescription(project)
-		}));
+		projects = projects.map(project => {
+			delete project.icon;
+			return ({
+				...project,
+				description: getProjectDescription(project)
+			});
+		});
 	} else {
 		log(getAPIErrorMessage(projectsResponse.response), "#FF5733");
 	}
