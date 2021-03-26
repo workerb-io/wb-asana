@@ -107,7 +107,7 @@ module.exports = {
         new WBMetaJsonGenerator({
             environment,
             package: "Asana",
-            packageDescription: "workerB package for asana.com",
+            packageDescription: "asana.com",
             packageIcon: "/src/logo.png",
             readmeFile: "README.md",
             sites: ["https://www.asana.com"],
